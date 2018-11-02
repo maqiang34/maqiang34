@@ -1,0 +1,47 @@
+<html ng-app="ionicApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+    <title>神农甘田-溯源</title>
+    <link rel="stylesheet" href="app/ionic/css/ionic.css?v=3.7.4">
+    <!--<link href="https://cdn.bootcss.com/ionic/1.3.2/css/ionic.css" rel="stylesheet">-->
+    <script src="app/com/plugins/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="app/ionic/js/ionic.bundle.min.js?v=3.7.4"></script>
+    <script type="text/javascript" src="app/com/plugins/angular/ocLazyLoad.min.js??v=3.7.4"></script>
+    <script type="text/javascript" src="app/com/js/app.js?v=3.7.4"></script>
+
+    <!--<link rel="stylesheet" href="app/fonts/iconfont.css">-->
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_700729_gqqmesnd6rzlg14i.css">
+    <style >
+        .tab-item .icon {display: block; margin: 0 auto; height: 30px; font-size: 28px; line-height: 30px; }
+        .tab-item-active{ color:#0ED2C4;}
+        .tabs{border-top: 1px solid #0ED2C4 !important;}
+    </style>
+
+</head>
+
+<body>
+<ion-nav-view></ion-nav-view>
+<script id="templates/tabs.html" type="text/ng-template">
+        <ion-tabs class="tabs-icon-top tabs-positive">
+        <ion-tab title="溯源" icon="iconfont icon-shuye" href="#/tab/home">
+            <ion-nav-view name="home-tab"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab title="推荐" icon="iconfont icon-shuiguo" href="#/tab/goodlist">
+            <ion-nav-view name="goodlist-tab"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab title="关于" icon="iconfont icon-yonghu" ui-sref="tabs.user">
+            <ion-nav-view name="user-tab"></ion-nav-view>
+        </ion-tab>
+    </ion-tabs>
+
+
+
+</script>
+
+
+</body>
+</html>

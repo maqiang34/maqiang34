@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.smartcold.manage.cold.dao.GoodTraceMapper">
+    <insert id="add" parameterType="com.smartcold.manage.cold.entity.comm.GoodTrace" useGeneratedKeys="true" keyProperty="id">
+       INSERT INTO `good_trace`(`gid`,`record`,`stage`,`operator`,`make`,`time`)VALUE(#{gid},#{record},#{stage},#{operator},#{make},#{time});
+    </insert>
+    <update id="update">
+        update `good_trace`
+        <set>
+            <if test="gid       !=null and gid!=''">`gid`       =#{gid},</if>
+            <if test="record        !=null and record!=''">`record`        =#{record},</if>
+            <if test="stage        !=null and stage!=''">`stage`        =#{stage},</if>
+            <if test="operator        !=null and operator!=''">`operator`        =#{operator},</if>
+            <if test="make        !=null and make!=''">make        =#{make       },</if>
+            <if test="time  !=null and time!=''">time  =#{time },</if>
+            <if test="img  !=null and img!=''">img  =#{img },</if>
+        </set>
+        where id = #{id};
+    </update>
+
+    <delete id="del" parameterType="map">
+         delete from `good_trace` where `id` in(${ids});
+    </delete>
+    <delete id="delbygid">
+         delete from `good_trace` where `gid`=#{gid};
+    </delete>
+
+    <select id="list" resultType="com.smartcold.manage.cold.entity.comm.GoodTrace" >
+        select * from `good_trace` where `gid`=#{gid}
+        <if test="record!=null">
+            and `record`=#{record}
+        </if>
+        <if test="stage!=null">
+            and `stage`=#{stage}
+        </if>
+        <if test="startTime!=null and ''!=startTime">
+            and `time`&gt;#{startTime}
+        </if>
+        <if test="endTime!=null and ''!=endTime">
+            and `time`&lt;#{endTime}
+        </if>
+    </select>
+    <select id="get" resultType="com.smartcold.manage.cold.entity.comm.GoodTrace">
+          select * from `good_trace` where `id`=#{id};
+    </select>
+</mapper>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.smartcold.manage.cold.dao.GoodInfoMapper">
+    <insert id="add" parameterType="com.smartcold.manage.cold.entity.comm.GoodInfo" useGeneratedKeys="true" keyProperty="id">
+ INSERT INTO `good_info`(
+`uuid`,
+`compid`,
+`growid`,
+`goodtype`,
+`name`,
+`grade`,
+`price`,
+`unit`,
+`make`,
+`growth`,
+`period`)VALUE(
+#{uuid},
+#{compid},
+#{growid},
+#{goodtype},
+#{name},
+#{grade},
+#{price},
+#{unit},
+#{make},
+#{growth},
+#{period});
+    </insert>
+    <update id="update">
+        update `good_info`
+        <set>
+            <if test="name       !=null and name!=''">`name`       =#{name},</if>
+            <if test="img        !=null and img!=''">`img`        =#{img},</if>
+            <if test="goodtype        !=null and goodtype!=''">goodtype        =#{goodtype       },</if>
+            <if test="grade  !=null and grade!=''">grade  =#{grade },</if>
+            <if test="price  !=null and price!=''">price  =#{price },</if>
+            <if test="unit !=null and unit!=''">unit =#{unit},</if>
+            <if test="make !=null and make!=''">make =#{make},</if>
+            <if test="growth !=null and growth!=''">growth =#{growth},</if>
+            <if test="period !=null and period!=''">period =#{period},</if>
+        </set>
+        where id = #{id};
+
+
+    </update>
+    <delete id="del" parameterType="map">
+         delete from `good_info` where  `id` in(${ids});
+    </delete>
+    <select id="list" resultType="com.smartcold.manage.cold.entity.comm.GoodInfo">
+        select g.`id`,g.`compid`,g.`growid`,g.`goodtype`,g.`name`,g.`img`,g.`grade`,g.`price`,g.`unit` ,g.`make` ,g.`growth`,g.`addtime`, c.`name` compname,w.`name` growname ,`period` from `good_info` g LEFT JOIN company c on g.compid=c.id LEFT JOIN good_grow w on g.growid=w.id where 1=1
+        <if test="uid!=null">
+          and  g.`compid` in( SELECT id from company where uid=#{uid})
+        </if>
+        <if test="uid==null and compid!=null">
+          and  g.`compid`=#{compid}
+        </if>
+        <if test="growid!=null">
+          and  g.`growid`=#{growid}
+        </if>
+        <if test="goodtype!=null">
+          and  g.`goodtype`=#{goodtype}
+        </if>
+        <if test="grade!=null">
+          and  g.`grade`=#{grade}
+        </if>
+        <if test="colval!=null and colval!=''">
+              and  ${coleam} like CONCAT('%',#{colval},'%')
+        </if>
+        ORDER BY id desc
+    </select>
+
+    <select id="get" resultType="com.smartcold.manage.cold.entity.comm.GoodInfo" parameterType="Integer">
+        select `id`,`compid`,`growid`,`goodtype`,`name`,`img`,`grade`,`price`,`unit` ,`make`,`growth` ,`period` from `good_info` where `id`=#{id}
+    </select>
+    <select id="getByUUID" resultType="com.smartcold.manage.cold.entity.comm.GoodInfo" parameterType="String">
+            select g.`id`,g.`compid`,g.`growid`,g.`goodtype`,g.`name`,g.`img`,g.`grade`,g.`price`,g.`unit` ,g.`make` ,g.`growth`,g.`addtime`, c.`name` compname,w.`name` growname ,`period` from `good_info` g LEFT JOIN company c on g.compid=c.id LEFT JOIN good_grow w on g.grade=w.id where g.uuid=#{uuid};
+    </select>
+    <select id="vserUUID" resultType="java.lang.Integer">
+          select g.`id`  from `good_info` g  where g.uuid=#{uuid};
+    </select>
+    <select id="listByIds" resultType="com.smartcold.manage.cold.entity.comm.GoodInfo">
+         select g.`id`,g.`uuid`  from `good_info` g  where g.id in(${ids});
+    </select>
+</mapper>

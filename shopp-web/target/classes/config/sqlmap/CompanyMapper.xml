@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.smartcold.manage.cold.dao.CompanyMapper">
+    <delete id="del">
+          delete from `company` where 1=1   <if test="uid!=null">   and uid=#{uid}  </if> and  id in(${ids});
+    </delete>
+
+    <select id="allList" resultType="HashMap">
+         select `id`,`name` `text` from `company` c  <if test="uid!=null"> where `uid` =#{uid}</if>
+    </select>
+
+    <select id="get" resultType="com.smartcold.manage.cold.entity.comm.CompanyEntity">
+         select * from `company` c  where c.id=#{id};
+    </select>
+    <select id="list" resultType="com.smartcold.manage.cold.entity.comm.CompanyEntity" parameterType="map">
+       select * from `company` c where  1=1
+        <if test="uid!=null and uid !=0">
+            and    c.`uid` =#{uid}
+        </if>
+        <if test="colval!=null and colval!=''">
+            and    c.`${coleam}` like  CONCAT('%',#{colval},'%')
+        </if>
+    </select>
+
+
+    <insert id="add" parameterType="com.smartcold.manage.cold.entity.comm.CompanyEntity" useGeneratedKeys="true" keyProperty="id">
+         INSERT INTO `company`(
+`uid`,
+`name`,
+`logo`,
+`scopes`,
+`province`,
+`city`,
+`area`,
+`address`,
+`coordinate`,
+`person`,
+`telephone`,
+`synopsis`,
+`time`
+         )VALUE(
+#{uid},
+#{name},
+#{logo},
+#{scopes},
+#{province},
+#{city},
+#{area},
+#{address},
+#{coordinate},
+#{person},
+#{telephone},
+#{synopsis},
+#{time}
+ );
+    </insert>
+
+    <update id="update" parameterType="com.smartcold.manage.cold.entity.comm.CompanyEntity">
+        update `company`
+        <set>
+            <if test="name       !=null and name!=''">name       =#{name},</if>
+            <if test="logo        !=null and logo!=''">logo        =#{logo},</if>
+            <if test="scopes        !=null and scopes!=''">scopes        =#{scopes       },</if>
+            <if test="province  !=null and province!=''">province  =#{province },</if>
+            <if test="city  !=null and city!=''">city  =#{city },</if>
+            <if test="area !=null and area!=''">area =#{area},</if>
+            <if test="address !=null and address!=''">address =#{address},</if>
+            <if test="coordinate !=null and coordinate!=''">coordinate =#{coordinate},</if>
+            <if test="person !=null">person =#{person},</if>
+            <if test="telephone !=null and telephone!=''">telephone =#{telephone},</if>
+            <if test="synopsis !=null and synopsis!=''">synopsis =#{synopsis},</if>
+            <if test="time !=null and time!=''">time =#{time},</if>
+        </set>
+        where id = #{id};
+    </update>
+</mapper>

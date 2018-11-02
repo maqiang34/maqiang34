@@ -1,0 +1,146 @@
+<script src="app/com/plugins/layer_mobile/layer.js"></script>
+<style>
+    .box img{width: 100%;}
+    .back{position: absolute; z-index: 1;top: 28px;left: 30px; font-size: 28px; }
+    .title{ font-size: 22px;color: red;}
+    .sp_jj{
+        margin-left: 45px;
+        display: block;
+        margin-top: -20px;
+    }
+    em{
+        color: red;
+    }
+</style>
+
+<ion-content>
+    <i class="icon iconfont icon-fanhui5 back" ng-click="goback()"></i>
+    <!-- 页面的内容 -->
+    <ion-slide-box auto-play="true" style="height: 300px;">
+        <ion-slide ng-repeat="item in imgs track by $index">
+            <div class="box">
+                <img ng-src="{{imgsv+item.location}}">
+            </div>
+        </ion-slide>
+    </ion-slide-box>
+
+    <div ng-if="goodAuth!=null" class="item item-body">
+        <span class="title">尊敬的用戶，您好！</span>
+        <p>
+            您查询的溯源码：<em>{{  goodAuth.uuid   }}</em><br>
+            查询结果 ：<em>{{['已失效','有效'][goodAuth.status]}}</em><br>
+             <span ng-if="goodAuth.status==0">
+                 失效时间：<em>{{ goodAuth.Invalidtime }}</em><br>
+                 查询次数：<em>{{ goodAuth.count }}</em>
+             </span>
+        </p>
+    </div>
+
+    <div class="item item-body">
+        <span class="title">{{goodinfo.name}}</span>
+        <p>
+            等级：{{gd_leve[goodinfo.grade]    }}<br>
+            价格：{{ goodinfo.price+'元/'+gd_unit[goodinfo.unit]}}<br>
+            产地：{{grow.address}}<br>
+            生长周期：{{goodinfo.growth}}天<br>
+            保质期：{{goodinfo.period}}天<br>
+            简介：<span class="sp_jj">{{goodinfo.make}}</span>
+        </p>
+        <div class="item tabs tabs-secondary tabs-icon-left">
+            <span class="tab-item" href="#">
+                <i class="icon ion-thumbsup"></i>
+                喜欢
+            </span>
+        </div>
+    </div>
+   <!--企业信息-->
+    <div class="list card">
+        <div class="item ">
+            <span class="title">{{company.name}}</span>
+        </div>
+        <div class="item item-body">
+            <ion-slide-box auto-play="true" style="height: 300px;">
+                <ion-slide ng-repeat="item in copimgs track by $index">
+                    <div class="box">
+                        <img ng-src="{{imgsv+item.location}}">
+                    </div>
+                </ion-slide>
+            </ion-slide-box>
+            <p>
+            经营范围：{{company.scopes}}<br>
+            联系电话：{{company.telephone}}<br>
+            建立时间：{{company.time}}<br>
+            地址：{{company.address}}<br>
+            积分：{{company.score}}<br>
+            简介：<span class="sp_jj">{{company.synopsis}}</span>
+            </p>
+            <p>
+                <a href="#" class="subdued">1 喜欢</a>
+                <a href="#" class="subdued">5 评论</a>
+            </p>
+        </div>
+    </div>
+   <!--基地信息-->
+    <div class="list card">
+        <div class="item ">
+            <span class="title">{{grow.name}}</span>
+        </div>
+
+        <div class="item item-body">
+            <ion-slide-box auto-play="true" style="height: 300px;">
+                <ion-slide ng-repeat="item in growimgs track by $index">
+                    <div class="box">
+                        <img ng-src="{{imgsv+item.location}}">
+                    </div>
+                </ion-slide>
+            </ion-slide-box>
+            <p>
+                基地地址：{{grow.address}}<br>
+                基地面积：{{grow.area}}<br>
+            </p>
+        </div>
+    </div>
+    <!--追溯记录-->
+    <div class="list card">
+        <div class="item ">
+            <span class="title">溯源记录</span>
+        </div>
+        <div class="list">
+
+            <div class="item item-thumbnail-left" href="#"  ng-repeat="obj in traces track by $index" ng-click="showrs(obj)">
+                <img ng-src="{{imgsv+obj.img}}">
+                <p> 操作时间：{{obj.time.substring(0,19)}}</p>
+                <p>项目：{{records[obj.record]}} </p>
+                <p>阶段：{{ stages[obj.stage]}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="trace_info" style="display: none" >
+        <div  class="list card">
+            <div class="item ">
+                <span class="title">{{goodinfo.name}}-记录</span>
+            </div>
+            <div class="item item-body">
+                <!--<ion-slide-box auto-play="true" delegate-handle="image-viewer" style="height: 300px;">-->
+                            <!--<img ng-repeat="item in show_imgs" ng-src="{{imgsv+item.location}}">-->
+                <!--</ion-slide-box>-->
+                <!--<ion-slide-box  style="height: 300px;">-->
+                    <!--<ion-slide ng-repeat="item in show_imgs track by $index">-->
+                        <!--<div class="box">-->
+                            <img  ng-repeat="item in show_imgs track by $index" ng-src="{{imgsv+item.location}}" style="height: 100px;">
+                        <!--</div>-->
+                    <!--</ion-slide>-->
+                <!--</ion-slide-box>-->
+                <p>
+                    操作时间：{{show_trace.time.substring(0,19)}}<br>
+                    项目：{{records[show_trace.record]}}<br>
+                    阶段：{{ stages[show_trace.stage]}}<br>
+                    操作人：{{show_trace.operator}}<br>
+                    备注：<span class="sp_jj">{{show_trace.make}}</span>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</ion-content>

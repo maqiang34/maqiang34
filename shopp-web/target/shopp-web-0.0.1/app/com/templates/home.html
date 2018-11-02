@@ -1,0 +1,140 @@
+<style>
+    .div_con{text-align: center ;background-color: #F6F6F6;       height: 100%;}
+    .h_heade{ background: url(/app/com/images/1.jpg) no-repeat center center;
+        background-size: 100% 100%;
+        -moz-background-size: 100% 100%;
+        height: 323px;
+    }
+    .d_c{color: #56E6DB}
+    .fl{  float: left}
+    .fr{   float: right}
+    .row_c{ padding: 10px 10px 10px 10px;text-align: left}
+    #text_search:focus{
+
+    }
+    .dv_linat{
+        display: block;
+        height: 300px;
+        background-color: white;
+        width: 90%;
+        text-align: center;
+        color: #56E6DB;
+        overflow: hidden;
+    }
+    .mp_240{      margin: 240px auto 0px auto; }
+    .mp_10{  margin: 10px auto; }
+
+    .i_icon{
+        height: 30px;
+        width: 25%;
+        display: block;
+        float: left;
+    }
+    .con_size{ font-size: 36px;}
+    .dv_linat span{
+        margin: 10px 0px 10px 0px;
+    }
+
+</style>
+<ion-content >
+    <div class="div_con">
+        <div class="h_heade">
+
+        </div>
+        <div style="margin-top: -320px;">
+            <div class="list list-inset">
+                <label class="item item-input">
+                    <i class="icon ion-search placeholder-icon"></i>
+                    <input id="text_search" type="number"  ng-keyup="myKeyup($event)"  placeholder="请输入查询编码">
+                </label>
+            </div>
+        </div>
+        <div class="dv_linat mp_240">
+           <span><h3>区块链溯源</h3></span>
+            <span >
+                <img src="app/com/images/3.jpg">
+            </span>
+          <span style="margin-top: 30px;display: block;">
+              <i class="icon iconfont icon-handplantstar-copy i_icon con_size" ></i>
+              <i class="icon iconfont icon-fq_jiagong i_icon con_size" ></i>
+              <i class="icon iconfont icon-bangzhu i_icon con_size" ></i>
+              <i class="icon iconfont icon-shouhou i_icon con_size" ></i>
+          </span>
+          <span >
+              <i class="icon iconfont i_icon" >种子信息</i>
+              <i class="icon iconfont  i_icon" >加工信息</i>
+              <i class="icon iconfont  i_icon" >物流信息</i>
+              <i class="icon iconfont  i_icon" >售后信息</i>
+          </span>
+            <span style="margin-top: 125px;display: block;">
+              <i class="icon iconfont icon-shuiguo1 i_icon con_size" ></i>
+              <i class="icon iconfont icon-shucai i_icon con_size" ></i>
+              <i class="icon iconfont icon-jianguo i_icon con_size" ></i>
+              <i class="icon iconfont icon-guimohuaxuqinyangzhichang i_icon con_size" ></i>
+          </span>
+            <span >
+              <i class="icon iconfont i_icon" >水果</i>
+              <i class="icon iconfont  i_icon" >蔬菜</i>
+              <i class="icon iconfont  i_icon" >坚果</i>
+              <i class="icon iconfont  i_icon" >畜禽</i>
+          </span>
+        </div>
+
+
+
+        <div class="content has-header">
+            <div class="list card">
+                <div class="item d_c row_c" >
+                    <i class="icon iconfont icon-shuiguo1  con_size fl" ></i><span>水果</span>
+                   <span class="fr" ng-click="gogoodList(1)">更多</span>
+                </div>
+                <div class="item item-body">
+                    <div  ng-repeat="obj in hm_sg track by $index " class="item item-avatar" ng-click="gogoodDeatil(obj.id)">
+                        <img ng-src="{{imgsv+obj.img}}">
+                        <p class="fl"> {{obj.name +"  "+  gd_leve[obj.grade]}} </p>
+                        <p class="fr"> {{  obj.price+'元/'+gd_unit[obj.unit]}} </p>
+                  </div>
+
+                <div class="item tabs tabs-secondary tabs-icon-left">
+                    <a class="tab-item" href="#">
+                        <i class="icon ion-thumbsup"></i>
+                        喜欢
+                    </a>
+                    <a class="tab-item" href="#">
+                        <i class="icon ion-chatbox"></i>
+                        评论
+                    </a>
+
+                </div>
+            </div>
+       </div>
+
+        <div class="content has-header">
+            <div class="list card">
+                <div class="item d_c row_c" >
+                    <i class="icon iconfont icon-shucai  con_size fl" ></i><span>蔬菜</span>
+                    <span class="fr" ng-click="gogoodList(2)">更多</span>
+                </div>
+                <div class="item item-body">
+                    <div  ng-repeat="obj in hm_sc track by $index " class="item item-avatar" ng-click="gogoodDeatil(obj.id)">
+                        <img ng-src="{{imgsv+obj.img}}">
+                        <p class="fl"> {{obj.name +"  "+  gd_leve[obj.grade]}} </p>
+                        <p class="fr"> {{  obj.price+'元/'+gd_unit[obj.unit]}} </p>
+                    </div>
+
+                    <div class="item tabs tabs-secondary tabs-icon-left">
+                        <a class="tab-item" href="#">
+                            <i class="icon ion-thumbsup"></i>
+                            喜欢
+                        </a>
+                        <a class="tab-item" href="#">
+                            <i class="icon ion-chatbox"></i>
+                            评论
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>

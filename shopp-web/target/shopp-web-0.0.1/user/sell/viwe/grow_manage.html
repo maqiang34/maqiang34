@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>基地管理</title>
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../comm/jquery/themes/default/easyui.css"  />
+    <link rel="stylesheet" type="text/css" href="../style/icon.css"  />
+    <link rel="stylesheet" type="text/css" href="../style/comm.css"  />
+    <style type="text/css">
+        form tr{height:35px;}
+        .pagination-btn-separator {float: none;}
+        .imgBox {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            margin-right: 10px;
+            position: relative;
+        }
+        .imgClose {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 20px;
+            height: 20px;
+            background-color: rgba(0,0,0,.6);
+            color: red;
+            font-size: 20px;
+            text-align: center;
+            line-height: 20px;
+            font-style: normal;
+            cursor: pointer;
+        }
+    </style>
+    <script type="text/javascript"  src="../../comm/jquery/jquery.min.js"></script>
+    <script type="text/javascript"  src="../../comm/jquery/jquery.easyui.min.js"></script>
+    <script type="text/javascript"  src="../app/comm.js?v=1.1"></script>
+    <script type="text/javascript"  src="../app/grow_manage.js"></script>
+</head>
+<body id="maindiv" class="easyui-layout" >
+<div data-options="region:'center'">
+    <table id="objTable" class="fill"></table>
+</div>
+
+<div style="display: none;">
+    <div id="user_filter" class="clearfix" style="padding:5px 0;">
+        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon_add'" onclick="tl_addDData();">添加</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon_edit'" onclick="tl_editData()">编辑</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon_rem'" onclick="tl_deleteData()">删除</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'pagination-load'" onclick="reloaddata()">刷新</a>
+        <div style="display: inline-block; float: right;">
+            <div id="div_st_filter">
+
+            </div>
+        </div>
+    </div>
+    <div id="datadialog" class="easyui-dialog"  data-options="modal: true,closed:true,width:620,buttons: [{text:'保存',iconCls:'icon-ok',handler:saveFromData},{text:'取消',iconCls:'icon-cancel2',handler:function(){$('#datadialog').dialog('close');}}]"  >
+        <form id="from_data" style="padding:10px 20px;" >
+
+            <table class="fill" >
+                <tr>
+                    <td>所属企业:</td>
+                    <td>
+                        <input  class="easyui-combobox" name="compid"   data-options="editable:false,required:true,valueField:'id',textField:'text',url:'/i/company/allList.do'" style="width: 100%;height: 24px;text-align: left;">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 70px;display: block">基地名称:</td>
+                    <td>
+                        <input  type="hidden" name="id" value="">
+                        <input class="easyui-validatebox textbox" name="name"  data-options="prompt:'请输入基地名称',required:true,validType:{length:[3,16]}"   style="width: 100%;height: 24px;text-align: left;">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>地址:</td>
+                    <td>
+                        <input class="easyui-validatebox textbox" name="address" data-options="prompt:'请输入基地地址',required:true,validType:{length:[2,16]}"   style="width: 100%;height: 24px;text-align: left;">
+                    </td>
+                </tr>
+                <tr>
+                    <td>面积(亩):</td>
+                    <td>
+                        <input type="number" class="easyui-validatebox textbox" name="area"  data-options="prompt:'请输入基地面积',required:true,validType:{length:[2,4]}"   style="width: 100%;height: 24px;text-align: left;">
+                    </td>
+                </tr>
+                <tr>
+                    <td>基地图片:</td>
+                    <td>
+                        <input id="files" type="file" name="files" onchange="picChange(this)"  multiple accept=".jpg,.png,.gif,.bmp,.jpeg"><em>最多10张</em>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" id="comp_imgList">
+
+
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+
+</div>
+
+
+</body>
+</html>

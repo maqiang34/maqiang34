@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.smartcold.manage.cold.dao.UserMapper">
+    <delete id="delUserByIds">
+        delete from `user` where id in(${ids});
+    </delete>
+
+    <select id="login" resultType="com.smartcold.manage.cold.entity.comm.UserEntity">
+	     select `id`,`name`,`available`,`telephone`,`email`,`lgcount`,`type` from `user`   where `name`=#{name} and `pwd` =#{pwd};
+    </select>
+
+    <select id="finedUserById" resultType="com.smartcold.manage.cold.entity.comm.UserEntity">
+         select `id`,`name`,`available`,`telephone`,`email`,`lgcount`,`type`  from `user` u  where u.id=#{id};
+    </select>
+    <select id="findUserList" resultType="com.smartcold.manage.cold.entity.comm.UserEntity">
+        select `id`,`name`,`available`,`telephone`,`email`,`lgcount`,`type`  from `user` u  where 1=1
+        <if test="available!=null">
+            and `available`=#{available}
+        </if>
+        <if test="keyword!=null and keyword!=''">
+         and  u.name like  CONCAT('%',#{keyword},'%')
+        </if>
+        <if test="colval!=null and colval!=''">
+          and    u.`${coleam}` like  CONCAT('%',#{colval},'%')
+        </if>
+
+    </select>
+    <select id="vistUserName" resultType="java.lang.Integer">
+          select count(id) from `user` where `name`=#{name};
+    </select>
+
+    <insert id="addUser" parameterType="com.smartcold.manage.cold.entity.comm.UserEntity">
+         INSERT INTO `user`( `name`,`pwd`,`telephone`,`email`)VALUE(#{name},#{pwd},#{telephone},#{email});
+    </insert>
+
+    <update id="updateUser" parameterType="com.smartcold.manage.cold.entity.comm.UserEntity">
+        update user
+        <set>
+            <if test="pwd !=null and pwd!=''">pwd       =#{pwd },</if>
+            <if test="available !=null">available =#{available},</if>
+            <if test="telephone !=null">telephone  =#{telephone },</if>
+            <if test="email !=null">email =#{email},</if>
+            <if test="lgcount !=null">lgcount =lgcount+1,</if>
+        </set>
+        where id = #{id};
+    </update>
+</mapper>

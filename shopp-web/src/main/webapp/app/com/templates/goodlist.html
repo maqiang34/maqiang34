@@ -1,0 +1,46 @@
+<style>
+    .fl{  float: left}
+    .fr{   float: right}
+    .sm{display: inline-block;
+        padding: 1px 4px;
+        background-color: #E5F9F1;
+        color: #29C783;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;}
+    .item-content p{ margin-top: 5px;}
+</style>
+<ion-content>
+    <div class="card" ng-cloak>
+        <label class="item item-input">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input id="goodlist_search" type="text" placeholder="请输入商品名称" ng-keyup="myKeyup($event)">
+        </label>
+    </div>
+
+
+        <ion-list>
+            <div class="rdclist">
+                <div class="card">
+                    <ion-list id="ionc_goodlist">
+                  <ion-item class="item item-thumbnail-left" href="#/tab/gooddeatil/{{obj.id}}/" ng-repeat="obj in goodlist track by $index">
+                            <img ng-src={{imgsv+obj.img}} class="imgLost">
+                            <h2>{{obj.name}}<span class="fr sm">{{gd_leve[obj.grade]    +"   "+ obj.price+'元/'+gd_unit[obj.unit]}}</span></h2>
+                            <p class="color-99" style="font-size: 13px;"><i class="iconfont icon-techreport-"></i>{{obj.compname}}</p>
+                            <p style="font-size: 13px;">{{obj.addtime}}</p>
+                        </ion-item>
+                    </ion-list>
+                </div>
+            </div>
+            <!--<div ng-if="!can_loadMore()" class="nodata">-->
+                <!--<i class="iconfont icon-meiyoushujuyemian" ng-if="!goodlist.length"></i>-->
+                <!--<p ng-if="!goodlist.length">没有数据……</p>-->
+                <!--<p ng-if="goodlist.length">数据全部加载完毕……</p>-->
+            <!--</div>-->
+            <!--<ion-infinite-scroll ng-if="can_loadMore()" on-infinite="loadMore()" distance="5%" spinner="ios"  immediate-check="false" style="height: 1px;"></ion-infinite-scroll>-->
+
+
+
+
+
+</ion-content>

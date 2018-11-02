@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>链库-找冷库，上链库</title>
+    <meta name="baidu-site-verification" content="2hGRpJDWRx"/>
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <meta charset="utf-8" name="keywords"
+          content="冷库出租,冷库求租,找冷库，上链库，仓库寻找，找仓，求租，冷库出租、冷库求租,项目招标与采购，认证评级，达标冷库；冷链物流；睿库，冷库360,冷库监控,冷库智能管理,冷库能效评估；"/>
+    <meta charset="utf-8" name="description" content="链库是聚焦于冷库领域的物联网大数据服务平台，致力于打造集冷库认证评级、撮合交易、数据服务、安全及能耗系统管理等功能为一体的生态体系。
+"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit|ie-stand"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+    <link rel="dns-prefetch" href="//lianku.org.cn"/>
+    <link rel="shortcut icon" href="app/images/favicon.ico"/>
+    <script src="mui/js/mui.min.js"></script> 
+    <!--<link href="mui/css/mui.min.css" rel="stylesheet"/>-->
+    <!--==============引入样式表=========================-->
+    <link rel="stylesheet" href="app/plugins/baguetteBox/baguetteBox.css">
+    <link rel="stylesheet" href="fonts/iconfont.css">
+    <link rel="stylesheet" href="ionic/css/ionic.css">
+    <link rel="stylesheet" href="app/style/reset.css">
+    <!--==============引入js文件=========================-->
+    <script type="text/javascript" src="app/plugins/jquery-3.2.1.min.js?v=3.6.1"></script>
+    <script type="text/javascript" src="app/plugins/baguetteBox/baguetteBox.js?v=3.6.1"></script>
+    <script type="text/javascript" src="ionic/js/ionic.bundle.min.js?v=3.6.1"></script>
+    <script src="app/plugins/angular/ng-file-upload-shim.min.js?v=3.6.1"></script>
+    <script src="app/plugins/angular/ng-file-upload.min.js?v=3.6.1"></script>
+    <script type="text/javascript" src="app/plugins/angular/ocLazyLoad.min.js?v=3.6.1"></script>
+    <script type="text/javascript" src="app/plugins/md5.js"></script>
+    <script type="text/javascript" src="app/js/app.js?v=3.6.1"></script>
+</head>
+<body ng-app="ionicApp" animation="slide-left-right-ios7" ng-cloak>
+<ion-tabs class="tabs-icon-top tabs-positive">
+    <ion-tab title="首页" icon="ion-home" href="#/home">
+        <ion-nav-view name="home-tab"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="冷库资源" icon="ion-navicon-round" href="#/rdclist" ng-click="selectTabWithIndex(1)">
+        <ion-nav-view name="rdclist-tab"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="消息" icon="ion-chatbox-working" href="#/msg">
+        <ion-nav-view name="msg-tab"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="我的 " icon="ion-android-person" href="#/user" ng-click="selectTabWithIndex(3)">
+        <ion-nav-view name="user-tab"></ion-nav-view>
+    </ion-tab>
+</ion-tabs>
+<div class="toast" ng-if="showToast">
+    {{tips}}
+</div>
+<!--启动页广告HTML--> 
+<div class="start" style="background-image: url({{startObj.imgurl}})" on-finish-render-filters>
+    <span class="fadeOut" on-touch="closeAd()">{{time}}s跳过</span>
+</div>
+</body>
+</html> 

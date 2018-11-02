@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop" 	xmlns:task="http://www.springframework.org/schema/task" 
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-4.1.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
+                http://www.springframework.org/schema/task
+           http://www.springframework.org/schema/task/spring-task-4.1.xsd
+           http://www.springframework.org/schema/mvc
+           http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd">
+
+
+    
+    <!-- 默认的注解映射的支持 -->  
+	<mvc:annotation-driven />
+	<!-- 设置使用注解的类所在的jar包 -->
+	<context:component-scan base-package="com.smartcold.manage.cold.init"/>
+	<context:component-scan base-package="com.smartcold.manage.cold.controller"/>
+	<context:component-scan base-package="com.smartcold.manage.cold.service" /> 
+	
+	<context:annotation-config />
+    <!-- 处理定时任务并发性操作。。 -->
+	<task:annotation-driven scheduler="TaskScheduler"/>   
+	<task:scheduler id="TaskScheduler" pool-size="100" />
+
+
+	<!--FreeMarker视图解析器 -->
+	<bean id="viewResolver"  class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+		<property name="cache" value="true" />
+		<property name="suffix" value=".htm" />
+		<property name="contentType" value="text/html;charset=UTF-8"></property>
+		<!--         <property name="viewClass" value="com.smartcold.manage.cold.controller.mode.FreeMarkerViewUtil" /> -->
+		<property name="exposeRequestAttributes" value="true" />
+		<property name="exposeSessionAttributes" value="true" />
+		<property name="exposeSpringMacroHelpers" value="true" />
+	</bean>
+	<bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape" />
+	<!-- Freemarker配置 -->
+	<bean id="freemarkerConfig"  class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+		<property name="templateLoaderPath" value="/" />
+		<property name="freemarkerVariables"> <map><entry key="xml_escape" value-ref="fmXmlEscape" /> </map>  </property>
+		<property name="freemarkerSettings">
+			<props>
+				<prop key="template_update_delay">1</prop>
+				<prop key="default_encoding">UTF-8</prop>
+				<prop key="number_format">0.##########</prop>
+				<prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
+				<prop key="classic_compatible">true</prop>
+				<prop key="template_exception_handler">ignore</prop>
+				<!--                 <prop key="auto_include">head.html</prop>   -->
+			</props>
+		</property>
+	</bean>
+    
+      <!-- Aop切面-拦截所有。htm页面请求 1.已创建，返回创建页面，没有放过，页面自动调用  FreeMarkerViewUtil生成静态页面    -->
+<!--     <aop:aspectj-autoproxy expose-proxy="true"></aop:aspectj-autoproxy> -->
+<!--     <bean id="logAopAction" class="com.smartcold.manage.cold.controller.ViewAspect"></bean> -->
+
+</beans>

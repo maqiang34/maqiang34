@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www.suyuanchina.cn/a/jishuzhichi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 28 May 2018 12:35:26 GMT -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=yes">
+  <title>神农甘田-溯源追溯源头为产品保驾护航</title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="renderer" content="webkit">
+  <!--ico-->
+  <link rel="stylesheet" type="text/css" href="page/css/base.css" />
+  <link rel="stylesheet" type="text/css" href="page/css/animate.min.css" />
+  <link rel="stylesheet" type="text/css" href="page/css/owl.carousel.css" />
+  <link rel="stylesheet" type="text/css" href="page/css/style.css" />
+  <link rel="stylesheet" type="text/css" href="page/css/responsive.css" />
+  <link rel="stylesheet" href="plugins/cxScroll/css/layout.css">
+  <style>
+
+
+  </style>
+  <script src="plugins/jquery/jquery-1.11.0.min.js"></script>
+  <script src="page/js/wow.min_1.js"></script>
+  <script src="page/js/owl.carousel.min.js"></script>
+  <script src="page/js/page.js"></script>
+  <script src="plugins/cxScroll/js/jquery.cxscroll.js"></script>
+  <script src="plugins/layer/layer.js"></script>
+</head>
+<body>
+<div class="header">
+  <div class="rowFluid">
+    <div class="span2 col-md-12">
+      <div class="logo"> <a href="index.html" title="返回首页"> <img src="page/img/logo.png" alt="溯源追溯源头为产品保驾护航" /> </a> </div>
+    </div>
+    <div class="span8">
+      <div class="mobileMenuBtn"><span class="span1"></span><span class="span2"></span><span class="span3"></span></div>
+      <div class="mobileMenuBtn_shad"></div>
+      <div class="header_menu">
+        <ul id="menu">
+          <li><a href="index.html"    title="首页">首页</a></li>
+          <li><a href="trace.htm"  class='active' title="在线追溯">在线追溯</a></li>
+          <!--<li><a href="news.html" title="新闻资讯">新闻资讯</a></li>-->
+          <li><a href="solution.html" title="解决方案">解决方案</a></li>
+          <li><a href="about.html" title="关于我们">关于我们</a></li>
+          <li><a href="contact.html" title="联系我们">联系我们</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="span2">
+      <a  href="user/login.html" class="login">登录</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="page">
+  <div class="rowFluid">
+    <div class="span12">
+      <div class="main">
+        <div class="z_banner support_z_banner">
+          <div class="rowFluid">
+            <div class="span12">
+              <div class="container">
+                <h3 class="z_banner_title">追溯查询</h3>
+                <div class="z_banner_input">
+                  <!--<form  name="formsearch" action="https://www.suyuanchina.cn/plus/search.php">-->
+                    <input type="hidden" name="kwtype" value="0" />
+                    <input type="text" name="q" id="search-keyword" value="" placeholder="请输入追溯编码...."  onkeydown="myKeyup(event)"/>
+                    <img src="page/img/search.png" alt="查询" onclick="searchRdcs()">
+                  <!--</form>-->
+                </div>
+              </div>
+              <ul class="platform_advantage_bg_z">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 横向滚动 水果-->
+        <#if (sg?size>0)>
+        <div class="goodlist">
+            <div class="text-pull-left">
+              <img src="page/img/trace/shucai.png"> <span ng-bind="productRoot.cropValue" class="ng-binding">水果</span>
+            </div>
+            <div id="pic_list_1" class="scroll_horizontal">
+              <div class="box">
+                <ul class="list">
+                  <#list sg as good>
+                  <li>
+                    <a href="gooddeatil/${good.id}.htm">
+                      <img class="img" src="http://123.206.197.208:8989/${good.img}">
+                      <div class="caption">
+                        <div class="clearfix">
+                              <span class="pull-left">
+                                 <a class="product-name ng-binding" href="#" title="${good.name}">${good.name}</a>
+                              </span>
+                          <span class="lr cr" >${good.price}元/斤</span>
+                        </div>
+                        <div class="lr">
+                          <img src="page/img/trace/hed.png">
+                          <img src="page/img/trace/hed.png">
+                          <img src="page/img/trace/hed.png">
+                          <img src="page/img/trace/hed.png">
+                          <img src="page/img/trace/hed.png">
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                </#list>
+                </ul>
+              </div>
+            </div>
+        </div>
+      </#if>
+
+        <!-- 横向滚动 蔬菜-->
+      <#if (sc?size>0)>
+        <div class="goodlist">
+          <div class="text-pull-left">
+            <img src="page/img/trace/shucai.png"> <span ng-bind="productRoot.cropValue" class="ng-binding">蔬菜</span>
+          </div>
+          <div id="pic_list_2" class="scroll_horizontal">
+            <div class="box">
+              <ul class="list">
+                <#list sc as good>
+                <li>
+                  <a href="gooddeatil/${good.id}.htm">
+                    <img class="img" src=" http://123.206.197.208:8989/${good.img}">
+                    <div class="caption">
+                      <div class="clearfix">
+                              <span class="pull-left">
+                                 <a class="product-name ng-binding" href="#" title="${good.name}">${good.name}</a>
+                              </span>
+                        <span class="lr cr" >${good.price}元/斤</span>
+                      </div>
+                      <div class="lr">
+                        <img src="page/img/trace/hed.png">
+                        <img src="page/img/trace/hed.png">
+                        <img src="page/img/trace/hed.png">
+                        <img src="page/img/trace/hed.png">
+                        <img src="page/img/trace/hed.png">
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              </#list>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </#if>
+
+
+
+
+
+        <div class="technical_support">
+          <div class="rowFluid">
+
+          </div>
+
+          <div class="footer wow fadeInUp">
+            <div class="rowFluid">
+              <div class="span12">
+                <div class="container">
+                  <div class="footer_content">
+                    <div class="span4 col-xm-12">
+                      <div class="footer_list">
+                        <div class="span6">
+                        </div>
+                        <div class="span6 col-xm-12">
+                          <div class="quick_navigation">
+                            <div class="quick_navigation_title">快速导航</div>
+                            <ul>
+                              <li><a href="index.html"    title="首页">首页</a></li>
+                              <li><a href="trace.htm" title="在线追溯">在线追溯</a></li>
+                              <li><a href="solution.html" title="解决方案">解决方案</a></li>
+                              <li><a href="about.html" title="关于我们">关于我们</a></li>
+                              <li><a href="contact.html" title="联系我们">联系我们</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="span4 col-xm-6 col-xs-12">
+                      <div class="footer_list">
+                        <div class="footer_link">
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="span4 col-xm-6 col-xs-12">
+                      <div class="footer_list">
+                        <div class="footer_cotact">
+                          <div class="footer_cotact_title">联系方式</div>
+                          <ul>
+                            <li><span class="footer_cotact_type">地址：</span><span class="footer_cotact_content">湖北省十堰市张湾区北京北路99号103</span></li>
+                            <li><span class="footer_cotact_type">电话：</span><span class="footer_cotact_content"><a href="tel:15871081555" class="call">15871081555</a></span></li>
+                            <li><span class="footer_cotact_type">邮箱：</span><span class="footer_cotact_content">15871081555@163.com</span></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="copyright">Copyright &copy; 2017-2019  版权所有</br>最专业的产品追溯系统 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+<script>
+    $('#pic_list_1,#pic_list_2').cxScroll();
+
+      function  myKeyup(e){
+        var keycode = window.event?e.keyCode:e.which;
+        if(keycode==13){
+            searchRdcs();
+        }
+    };
+    function searchRdcs(){
+        var uuid=$("#search-keyword").val();
+        if(uuid.length==16){
+            $.ajax({ url: '/vserURID.do',type: 'POST',data:{"token":new Date().getHours()%4+3,"uuid":uuid}, success: function(data) {
+                    if(data){
+                        window.location.href="gooddeatil/"+data+".htm";
+                    }else{
+                        layer.msg("溯源码不正确！请注意商品安全！");
+                    }
+                }
+        });
+
+        }else{
+            layer.msg('请输入正确的编码！');
+        }
+
+
+    };
+</script>
+<!-- Mirrored from www.suyuanchina.cn/a/jishuzhichi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 28 May 2018 12:35:28 GMT -->
+</html>

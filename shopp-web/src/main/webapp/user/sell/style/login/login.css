@@ -1,0 +1,106 @@
+@charset "utf-8";
+body{
+	margin: 0;
+	padding: 0;
+	font-family: "微软雅黑", "Arial";
+	font-size: 14px;
+}
+
+.indexBody {
+	background: url(img/bg.jpg) no-repeat center ;
+	background-size: cover;
+	-webkit-background-size: cover;
+	height: 100vh;
+}
+
+.LoginBox {
+	width: 545px;
+	height: auto;
+	position: absolute;
+	top: 26%;
+	right: 120px;
+	bottom: 0;
+	margin: auto;
+}
+
+.LoginBoxSub {
+	width: 545px;
+	height: 299px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+	background-color: #fff;
+    box-shadow: 1px 2px 10px 	#7CFC00;
+	overflow: hidden;
+}
+
+.LoginBoxSub .SubTitle {
+	width: 545px;
+	height: 54px;
+	line-height: 54px;
+	text-align: center;
+	font-size: 24px;
+	font-weight: 700;
+	color: #333;
+	background-color: #f8fbfb;
+	border-bottom: 2px solid #eff4f4;
+	margin-bottom: 20px;
+}
+
+
+.tblg{
+	color: #fff;
+	background-color: #ea7a72;
+	width: 351px;
+	margin: 20px auto 0;
+	padding: 10px 0;
+	text-align: center;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.showmsg {
+    width: 200px;
+    overflow: hidden;
+}
+
+.onShow {
+	color: #ea7a72;
+    font-size: 12px;
+    height: 26px;
+    line-height: 25px;
+	width: 351px;
+	margin: 3px auto;
+}
+.inputBox{
+	width: 351px;
+	height: 40px;
+	margin: 0 auto;
+	background: url("img/user.png") no-repeat center;
+	-webkit-background-size: cover;
+	background-size: cover;
+	position: relative;
+	padding-left: 40px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.inputPwd{
+	background-image: url("img/pwd.png");
+}
+.inputBox input{
+	width: 98%;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	height: 30px;
+	margin-top: 5px;
+	vertical-align: middle;
+	font-size: 14px;
+	box-sizing: border-box;
+}

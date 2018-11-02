@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www.suyuanchina.cn/a/jishuzhichi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 28 May 2018 12:35:26 GMT -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=yes">
+  <title>神农甘田-溯源追溯源头为产品保驾护航</title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="renderer" content="webkit">
+  <!--ico-->
+  <base href="/" />
+  <link rel="stylesheet" type="text/css" href="page/css/base.css" />
+  <link rel="stylesheet" type="text/css" href="page/css/animate.min.css" />
+  <link rel="stylesheet" type="text/css" href="page/css/owl.carousel.css" />
+  <link rel="stylesheet" type="text/css" href="page/css/style.css" />
+  <link rel="stylesheet" type="text/css" href="page/css/responsive.css" />
+  <link rel="stylesheet" type="text/css" href="page/css/gooddeatil.css" />
+
+  <script src="plugins/jquery/jquery-1.11.0.min.js"></script>
+  <script src="page/js/wow.min_1.js"></script>
+  <script src="page/js/owl.carousel.min.js"></script>
+  <script src="page/js/page.js"></script>
+  <script src="plugins/jqueryCode/jquery.qrcode.min.js"></script>
+  <script src="plugins/layer/layer.js"></script>
+</head>
+<body>
+<div class="header">
+  <div class="rowFluid">
+    <div class="span2 col-md-12">
+      <div class="logo"> <a href="../../index.html" title="返回首页"> <img src="page/img/logo.png" alt="溯源追溯源头为产品保驾护航" /> </a> </div>
+    </div>
+    <div class="span8">
+      <div class="mobileMenuBtn"><span class="span1"></span><span class="span2"></span><span class="span3"></span></div>
+      <div class="mobileMenuBtn_shad"></div>
+      <div class="header_menu">
+        <ul id="menu">
+          <li><a href="index.html"    title="首页">首页</a></li>
+          <li><a href="trace.htm" class='active' title="在线追溯">在线追溯</a></li>
+          <!--<li><a href="news.html" title="新闻资讯">新闻资讯</a></li>-->
+          <li><a href="solution.html" title="解决方案">解决方案</a></li>
+          <li><a href="about.html" title="关于我们">关于我们</a></li>
+          <li><a href="contact.html" title="联系我们">联系我们</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="span2">
+      <a  href="user/login.html" class="login">登录</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="page">
+  <div class="rowFluid">
+    <div class="span12">
+      <div class="main">
+        <div class="z_banner" style="padding: 50px 0;">
+        </div>
+
+
+        <div class="span12">
+          <div  class="span3 col-xm-12">
+            <!--  轮播图start-->
+            <div class="preview">
+              <div id="vertical" class="bigImg">
+                <img src="http://123.206.197.208:8989/${imgs[0].location}" width="400" height="400" alt="" id="midimg" />
+                <div style="display:none;" id="winSelector"></div>
+              </div><!--bigImg end-->
+              <div class="smallImg">
+                <div class="scrollbutton smallImgUp disabled"></div>
+                <div id="imageMenu">
+                  <ul>
+                    <#list imgs as img>
+                    <li ><img src="http://123.206.197.208:8989/${img.location}" width="68" height="68" /></li>
+                    </#list>
+                  </ul>
+                </div>
+                <div class="scrollbutton smallImgDown"></div>
+              </div><!--smallImg end-->
+              <div id="bigView" style="display:none;"><img width="800" height="800" alt="" src="" /></div>
+            </div>
+            <!--  轮播图end-->
+          </div>
+          <div  class="span3 col-xm-12" style="padding:10px;">
+                  <div class="product-text"  style="font-weight:700;font-size:30px;">${goodinfo.name}</div>
+                  <div class="product-text"  style="color: #ffba00;margin: 20px 0px 0px 0px;font-size: 20px;"> ${goodinfo.make}</div>
+                  <div class="product-text"  >等级：${['','精品','特优','一级','二级','精选' ][goodinfo.grade]}</div>
+                  <div class="product-text">价格： <span style="font-size:24px;color:#ff7800">${ goodinfo.price}</span><span class="price-span" style="color:#ff7800">元/${['','g','500g','kg','袋','箱'][goodinfo.unit]}</span></div>
+                  <div class="product-text">产地：${grow.address}</div>
+                  <div class="product-text">生长周期：${goodinfo.growth}天</div>
+                  <div class="product-text">保质期：${goodinfo.period}天</div>
+                  <div class="product-text">基地名称：${grow.name}</div>
+                  <div class="product-text">基地面积：${grow.area}亩</div>
+          </div>
+
+          <div  class="span3 col-xm-12">
+            <div class="farm_information">
+              <img width="100%" height="200" src="http://123.206.197.208:8989/${company.logo}">
+                 <div class="farm-inform text-center" >${company.name}</div>
+                <div class="farm-contant" >经营范围：${company.scopes}</div>
+                 <div class="farm-contant">联系电话：${company.telephone}</div>
+                <div class="farm-contant" >建立时间：${company.time}</div>
+               <div class="farm-contant" >地址：${company.address}</div>
+                <div class="farm-contant">积分：${company.score}</div></div>
+                <div class="farm-contant">简介：${company.synopsis}</div></div>
+          </div>
+
+
+        </div>
+
+        <div class="row farm-table">
+          <div class="col-md-12">
+            <div class="product" style="width:100%">
+              <div class="product-head clearfix">
+                <div class="product-headl pull-left">
+                  <img src="page/img/trace/node.png" width="25" height="25">
+                  <span>农事记录</span></div></div><div class="scroll product-body" tabindex="5" style="overflow: hidden; outline: none;">
+                   <div class="table-responsive table-style">
+                     <table class="table specificThead">
+                       <thead><tr><th>日期</th><th>操作</th><th>阶段</th><th>操作人</th><th>操作</th><th>图片/视频</th><th></th></tr></thead><tbody>
+                         <#list traces as tr>
+                           <tr >
+                             <td >${tr.time?substring(0,19)}</td>
+                             <td >${['','种植','护理','施肥','农药','环境','生长照片/视频','产品认证','企业资质'] [tr.record]}</td>
+                             <td >${['','幼苗期','生长期','收获期'][tr.stage]}</td>
+                             <td >${tr.operator}</td>
+                             <td >${tr.make}</td>
+                             <td class="tupian cursor">
+                               <img data-toggle="modal" data-target="#view-photo" width="60" height="60"  onclick="showhist('${tr.id}','${tr.img}')" src="http://123.206.197.208:8989/${tr.img}">
+                             </td>
+                             <td>
+                               <a href="javascript:showhist('${tr.id}','${tr.img}')">详细</a>
+                             </td>
+                           </tr>
+                         </#list>
+                      </tbody>
+                     </table>
+                   </div>
+            </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+    <div class="technical_support">
+      <div class="rowFluid">
+      </div>
+      <div class="footer wow fadeInUp">
+        <div class="rowFluid">
+          <div class="span12">
+            <div class="container">
+              <div class="footer_content">
+                <div class="span4 col-xm-12">
+                  <div class="footer_list">
+                    <div class="span6">
+                    </div>
+                    <div class="span6 col-xm-12">
+                      <div class="quick_navigation">
+                        <div class="quick_navigation_title">快速导航</div>
+                        <ul>
+                          <li><a href="index.html"    title="首页">首页</a></li>
+                          <li><a href="trace.htm" title="在线追溯">在线追溯</a></li>
+                          <li><a href="solution.html" title="解决方案">解决方案</a></li>
+                          <li><a href="about.html" title="关于我们">关于我们</a></li>
+                          <li><a href="contact.html" title="联系我们">联系我们</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="span4 col-xm-6 col-xs-12">
+                  <div class="footer_list">
+                    <div class="footer_link">
+
+                    </div>
+                  </div>
+                </div>
+                <div class="span4 col-xm-6 col-xs-12">
+                  <div class="footer_list">
+                    <div class="footer_cotact">
+                      <div class="footer_cotact_title">联系方式</div>
+                      <ul>
+                        <li><span class="footer_cotact_type">地址：</span><span class="footer_cotact_content">湖北省十堰市张湾区北京北路99号103</span></li>
+                        <li><span class="footer_cotact_type">电话：</span><span class="footer_cotact_content"><a href="tel:15871081555" class="call">15871081555</a></span></li>
+                        <li><span class="footer_cotact_type">邮箱：</span><span class="footer_cotact_content">15871081555@163.com</span></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="copyright">Copyright &copy; 2017-2019  版权所有</br>最专业的产品追溯系统 </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+</body>
+<script>
+    $(document).ready(function(){
+        // 图片上下滚动
+        var count = $("#imageMenu li").length - 5; /* 显示 6 个 li标签内容 */
+        var interval = $("#imageMenu li:first").width();
+        var curIndex = 0;
+        $('.scrollbutton').click(function(){
+            if( $(this).hasClass('disabled') ) return false;
+            if ($(this).hasClass('smallImgUp')) --curIndex;
+            else ++curIndex;
+            $('.scrollbutton').removeClass('disabled');
+            if (curIndex == 0) $('.smallImgUp').addClass('disabled');
+            if (curIndex == count-1) $('.smallImgDown').addClass('disabled');
+            $("#imageMenu ul").stop(false, true).animate({"marginLeft" : -curIndex*interval + "px"}, 600);
+        });
+        // 解决 ie6 select框 问题
+        // $.fn.decorateIframe = function(options) {
+        //     if ($.browser.msie && $.browser.version < 7) {
+        //         var opts = $.extend({}, $.fn.decorateIframe.defaults, options);
+        //         $(this).each(function() {
+        //             var $myThis = $(this);
+        //             //创建一个IFRAME
+        //             var divIframe = $("<iframe />");
+        //             divIframe.attr("id", opts.iframeId);
+        //             divIframe.css("position", "absolute");
+        //             divIframe.css("display", "none");
+        //             divIframe.css("display", "block");
+        //             divIframe.css("z-index", opts.iframeZIndex);
+        //             divIframe.css("border");
+        //             divIframe.css("top", "0");
+        //             divIframe.css("left", "0");
+        //             if (opts.width == 0) {
+        //                 divIframe.css("width", $myThis.width() + parseInt($myThis.css("padding")) * 2 + "px");
+        //             }
+        //             if (opts.height == 0) {
+        //                 divIframe.css("height", $myThis.height() + parseInt($myThis.css("padding")) * 2 + "px");
+        //             }
+        //             divIframe.css("filter", "mask(color=#fff)");
+        //             $myThis.append(divIframe);
+        //         });
+        //     }
+        // }
+        // $.fn.decorateIframe.defaults = {
+        //     iframeId: "decorateIframe1",
+        //     iframeZIndex: -1,
+        //     width: 0,
+        //     height: 0
+        // }
+        // //放大镜视窗
+        // $("#bigView").decorateIframe();
+        //点击到中图
+        var midChangeHandler = null;
+        $("#imageMenu li img").bind("click", function(){
+            if ($(this).attr("id") != "onlickImg") {
+                midChange($(this).attr("src").replace("small", "mid"));
+                $("#imageMenu li").removeAttr("id");
+                $(this).parent().attr("id", "onlickImg");
+            }
+        });
+
+        function midChange(src) {
+            $("#midimg").attr("src", src).load(function() {
+                changeViewImg();
+            });
+        }
+        //大视窗看图
+        function mouseover(e) {
+            if ($("#winSelector").css("display") == "none") {
+                $("#winSelector,#bigView").show();
+            }
+            $("#winSelector").css(fixedPosition(e));
+            e.stopPropagation();
+        }
+        function mouseOut(e) {
+            if ($("#winSelector").css("display") != "none") {
+                $("#winSelector,#bigView").hide();
+            }
+            e.stopPropagation();
+        }
+         $("#midimg").mouseover(mouseover); //中图事件
+         $("#midimg,#winSelector").mousemove(mouseover).mouseout(mouseOut); //选择器事件
+        var $divWidth = $("#winSelector").width(); //选择器宽度
+        var $divHeight = $("#winSelector").height(); //选择器高度
+        var $imgWidth = $("#midimg").width(); //中图宽度
+        var $imgHeight = $("#midimg").height(); //中图高度
+        var $viewImgWidth = $viewImgHeight = $height = null; //IE加载后才能得到 大图宽度 大图高度 大图视窗高度
+        function changeViewImg() {
+            $("#bigView img").attr("src", $("#midimg").attr("src").replace("mid", "big"));
+        }
+        changeViewImg();
+        $("#bigView").scrollLeft(0).scrollTop(0);
+        function fixedPosition(e) {
+            if (e == null) {
+                return;
+            }
+            var $imgLeft = $("#midimg").offset().left; //中图左边距
+            var $imgTop = $("#midimg").offset().top; //中图上边距
+            X = e.pageX - $imgLeft - $divWidth / 2; //selector顶点坐标 X
+            Y = e.pageY - $imgTop - $divHeight / 2; //selector顶点坐标 Y
+            X = X < 0 ? 0 : X;
+            Y = Y < 0 ? 0 : Y;
+            X = X + $divWidth > $imgWidth ? $imgWidth - $divWidth : X;
+            Y = Y + $divHeight > $imgHeight ? $imgHeight - $divHeight : Y;
+            if ($viewImgWidth == null) {
+                $viewImgWidth = $("#bigView img").outerWidth();
+                $viewImgHeight = $("#bigView img").height();
+                if ($viewImgWidth < 200 || $viewImgHeight < 200) {
+                    $viewImgWidth = $viewImgHeight = 800;
+                }
+                $height = $divHeight * $viewImgHeight / $imgHeight;
+                $("#bigView").width($divWidth * $viewImgWidth / $imgWidth);
+                $("#bigView").height($height);
+            }
+            var scrollX = X * $viewImgWidth / $imgWidth;
+            var scrollY = Y * $viewImgHeight / $imgHeight;
+            $("#bigView img").css({ "left": scrollX * -1, "top": scrollY * -1 });
+            $("#bigView").css({ "top": 75, "left": $(".preview").offset().left + $(".preview").width() + 15 });
+            return { left: X, top: Y };
+        }
+    });
+
+    function showhist(id,smimg) {
+        var data= {"title": "",  "id": 123,  "start": 0 };
+        $.getJSON('tracesImgs/'+id+".do", function(json){
+            var img=[];
+           if(smimg){ json.push({id:0,location:smimg })};
+            json.forEach(function(v){
+                img.push({
+                    "alt": "",
+                    "pid": v.id, //图片id
+                    "src": "http://123.206.197.208:8989/"+v.location, //原图地址
+                    "thumb": "http://123.206.197.208:8989/"+v.location, //缩略图地址
+                })
+            });
+            data.data=img;
+            layer.photos({
+                photos: data //格式见API文档手册页
+                ,anim: 5 //0-6的选择，指定弹出图片动画类型，默认随机
+            });
+        });
+
+    }
+
+
+</script>
+<!-- Mirrored from www.suyuanchina.cn/a/jishuzhichi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 28 May 2018 12:35:28 GMT -->
+</html>

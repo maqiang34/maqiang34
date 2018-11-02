@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.smartcold.manage.cold.dao.FileDataMapper">
+    <insert id="add" parameterType="com.smartcold.manage.cold.entity.comm.FileDateEntity">
+         INSERT INTO `filedata`( `mt`,`type`,`oid`,`location`)VALUE(#{mt},#{type},#{oid},#{location});
+    </insert>
+
+    <insert id="insert" parameterType="com.smartcold.manage.cold.entity.comm.FileDateEntity" >
+        insert into `filedata` ( `mt`,`type`,`oid`,`location`)
+        values
+        <foreach collection="list" item="model" separator=",">
+            (#{model.mt},#{model.type},#{model.oid},#{model.location})
+        </foreach>
+    </insert>
+
+    <delete id="del" parameterType="Integer">
+        DELETE FROM `filedata` WHERE `id`=#{id}
+    </delete>
+
+    <delete id="delByMt" parameterType="Integer">
+        DELETE FROM `filedata` WHERE   `mt`=#{mt}  and `oid`=#{oid} ;
+    </delete>
+    <delete id="dels">
+         DELETE FROM `filedata` WHERE  id in (${ids}) ;
+    </delete>
+
+    <select id="getList" resultType="com.smartcold.manage.cold.entity.comm.FileDateEntity">
+        select  * from `filedata` where `mt`=#{mt} and `oid`=#{oid};
+    </select>
+
+
+</mapper>
